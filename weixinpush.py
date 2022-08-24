@@ -22,8 +22,7 @@ def weather(province, city):
     tem1 = reqtext['tem1']
     tem2 = reqtext['tem2']
     win = reqtext['win'] + '   ' + reqtext['win_speed']
-    air_tips = reqtext['air_tips']
-    return weq, tem1, tem2, win, air_tips
+    return weq, tem1, tem2, win
 
 
 time_tuple = time.localtime(time.time())
@@ -82,7 +81,6 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                         'tq': {'value': weat[0], 'color': get_color()},
                         'tem1': {'value': weat[1] + '°C' + ' ~ ' + weat[2] + '°C', 'color': get_color()},
                         'win': {'value': weat[3], 'color': get_color()},
-                        'air_tips': {'value': weat[4]},
                         'one': {'value': '每日一言 :  ' + one[0], 'color': get_color()}
                         }
                }
