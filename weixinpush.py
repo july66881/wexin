@@ -85,7 +85,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                         'tq': {'value': weat[0], 'color': get_color()},
                         'tem1': {'value': weat[2] + '°C' + ' ~ ' + weat[1] + '°C', 'color': get_color()},
                         'win': {'value': weat[3]},
-                        'win1': {'value': wet[4],'color': get_color()},
+                        'win1': {'value': weat[4],'color': get_color()},
                         'one': {'value': '每日一言 :  ' + one[0], 'color': get_color()}
                         }
                }
@@ -101,7 +101,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
-    template_id = 'PuWYwK3C8jVjtU671rgUs3Hr4ocfsSDGiXfxD5Ys7Aw'
+    template_id = 'Uu9CnEi4TzCOtNkSw8spo4I682Q6qfcAlM6nz6P5Abg'
     users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU','oMRds5uSiYdHm9DU9ycQNI0-HpnM']
     province = '上海'
     city = '闵行'
