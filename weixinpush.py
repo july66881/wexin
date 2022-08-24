@@ -12,7 +12,7 @@ def get_color():
     color_list = get_colors(100)
     return random.choice(color_list)
 
-
+# 获取天气
 def weather(province, city):
     url = f'https://v0.yiketianqi.com/api?appid=15184581&appsecret=l87CZ3Ap&version=v62&province={province}city={city}'
     headers = {'header': "Content-Type: application/json;charset=utf-8"}
@@ -24,11 +24,19 @@ def weather(province, city):
     win = reqtext['win'] + '   ' + reqtext['win_speed']
     return weq, tem1, tem2, win
 
-
+# 设置日期时间
 time_tuple = time.localtime(time.time())
 t = "{}年{}月{}日".format(time_tuple[0], time_tuple[1], time_tuple[2], time_tuple[3])
-ti = f'上午 {time_tuple[3]}:{time_tuple[4]}'
+hour = time_tuple[3]
+mins = time_tuple[4]
+if hour < 10:
+    hour = '0'+ str(hour)
+if mins < 10:
+    mins = '0' + str(mins)
+
+ti = f'上午 {hour}:{mins}'
 d = datetime.datetime.now().weekday()
+
 if d == 0:
     d = '星期一  Mon.'
 elif d == 1:
@@ -58,11 +66,7 @@ def oneyg():
     return req['word'], req['wordfrom']
 
 
-def za():
-    req = requests.get('http://api.tianapi.com/zaoan/index', params={'key': 'f70ff9e841951175e95b90e8ca1231ed'}).json()
-    return req['newslist'][0]['content']
-
-
+# 推送消息
 def send_message_ceshiVX(appid, secret, template_id, weat, province, city, userid):  # 默认发送给自己
 
     # 获取token
@@ -96,7 +100,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
-    template_id = 'pxo9sqpoxsosjomkscmwNeAJE-kCcZaFX_Q1bE7ldJw'
+    template_id = 'zt1Ls5uVzRsCkU9ibPtWBq6xA9kooBgMYB7QKEx5Zqk'
     users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU','oMRds5uSiYdHm9DU9ycQNI0-HpnM']
     province = '上海'
     city = '闵行'
