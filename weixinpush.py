@@ -40,7 +40,7 @@ if mins < 10:
 if hour < 12:
     pam = 'AM'
 else:
-    pam = 'pm'
+    pam = 'PM'
 
 ti = f'{pam} {hour}:{mins}'
 d = datetime.datetime.now().weekday()
@@ -93,7 +93,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                         'tem1': {'value': weat[2] + '°C' + ' ~ ' + weat[1] + '°C', 'color': get_color()},
                         'win': {'value': weat[3]},
                         'win1': {'value': weat[4],'color': get_color()},
-                        'one': {'value': '每日一言 :  ' + one[0], 'color': get_color()}
+                        'one': {'value': '一言 :  ' + one[0], 'color': get_color()}
                         }
                }
 
