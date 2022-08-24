@@ -14,15 +14,16 @@ def get_color():
 
 
 def weather(province, city):
-    url = f'https://v0.yiketianqi.com/api?appid=15184581&appsecret=l87CZ3Ap&version=v62&province={province}city={city}'
+    url = f'https://v0.yiketianqi.com/api?appid=15184581&appsecret=l87CZ3Ap&version=v62&province={province}&city={city}'
     headers = {'header': "Content-Type: application/json;charset=utf-8"}
     req = requests.get(url=url, headers=headers)
     reqtext = eval(req.text)
     weq = reqtext['wea']
     tem1 = reqtext['tem1']
     tem2 = reqtext['tem2']
-    win = reqtext['win'] + '   ' + reqtext['win_speed']
-    return weq, tem1, tem2, win
+    win = reqtext['win']
+    win1 = reqtext['win_speed']
+    return weq, tem1, tem2, win, win1
 
 
 time_tuple = time.localtime(time.time())
@@ -55,7 +56,7 @@ elif d == 6:
 def caihongpi():
     req = requests.get(url='http://api.tianapi.com/caihongpi/index?key=f70ff9e841951175e95b90e8ca1231ed',
                        headers={'Content-Type': 'application/x-www-form-urlencoded'}).json()
-    return req['newslist'][0]['content'].replace('xxx', 'wang')
+    return req['newslist'][0]['content'].replace('xxx', '小杰')
 
 
 def oneyg():
@@ -79,10 +80,12 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                "topcolor": get_color(),
                'data': {'caihongpi': {'value': caihongpi(), 'color': get_color()},
                         'date': {'value': t + ' ' + d+'\n'+ti, 'color': get_color()},
-                        'province': {'value': province + '   ' + city, 'color': get_color()},
+                        'province': {'value': province},
+                        'city': {'value': city, 'color': get_color()},
                         'tq': {'value': weat[0], 'color': get_color()},
-                        'tem1': {'value': weat[2] + '°C' + ' ~ '+weat[1] + '°C', 'color': get_color()},
-                        'win': {'value': weat[3], 'color': get_color()},
+                        'tem1': {'value': weat[2] + '°C' + ' ~ ' + weat[1] + '°C', 'color': get_color()},
+                        'win': {'value': weat[3]},
+                        'win1': {'value': wet[4],'color': get_color()}
                         'one': {'value': '每日一言 :  ' + one[0], 'color': get_color()}
                         }
                }
@@ -98,7 +101,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
-    template_id = 'zt1Ls5uVzRsCkU9ibPtWBq6xA9kooBgMYB7QKEx5Zqk'
+    template_id = 'PuWYwK3C8jVjtU671rgUs3Hr4ocfsSDGiXfxD5Ys7Aw'
     users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU','oMRds5uSiYdHm9DU9ycQNI0-HpnM']
     province = '上海'
     city = '闵行'
