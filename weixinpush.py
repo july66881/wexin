@@ -28,15 +28,19 @@ def weather(province, city):
 
 time_tuple = time.localtime(time.time())
 t = "{}年{}月{}日".format(time_tuple[0], time_tuple[1], time_tuple[2], time_tuple[3])
-hour = time_tuple[3]
+hour = time_tuple[3] + 8
 mins = time_tuple[4]
-if hour < 10:
-    hour = '0'+ str(hour)
+if hour > 24:
+    hour = hour - 24
+    if hour < 10:
+        hour = '0'+ str(hour)
+    if mins < 10:
+        mins = '0' + str(mins)
+    
+if hour < 12:
     pam = 'AM'
 else:
-    pam = 'PM'
-if mins < 10:
-    mins = '0' + str(mins)
+    pam = 'pm'
 
 ti = f'{pam} {hour}:{mins}'
 d = datetime.datetime.now().weekday()
@@ -98,7 +102,6 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 
     json_template = json.dumps(payload)
     response_send = requests.post(url, headers=headers, data=json_template)
-    print("测试公众号：", response_send.text)
 
 
 if __name__ == '__main__':
