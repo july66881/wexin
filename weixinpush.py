@@ -27,29 +27,8 @@ def weather(province, city):
 
 
 time_tuple = time.localtime(time.time())
-t = "{}年{}月{}日".format(time_tuple[0], time_tuple[1], time_tuple[2], time_tuple[3])
-hour = time_tuple[3] + 8
-mins = time_tuple[4]
+t = "{}年{}月{}日".format(time_tuple[0], time_tuple[1], time_tuple[2])
 
-
-if hour > 24:
-    hour = hour - 24
-    if hour < 12:
-        pam = 'AM'
-    else:
-        pam = 'PM'
-    if hour < 10:
-        hour = '0'+ str(hour)
-    elif hour > 12:
-        hour = hour - 12
-        if hour < 10:
-            hour = '0' + str(hour)
-if mins < 10:
-    mins = '0' + str(mins)
-    
-
-
-ti = f'{pam} {hour}:{mins}'
 d = datetime.datetime.now().weekday()
 if d == 0:
     d = '星期一  Mon.'
@@ -66,6 +45,21 @@ elif d == 5:
 elif d == 6:
     d = '星期七  Sun.'
 
+def verse():
+    wea = weather('河南', '沈丘')[0]
+    s = {'风': 1, '云': 2, '雨': 3, '雪': 4, '霜': 5, '露': 6, '雾': 7, '雷': 8, '晴': 9, '阴': 10}
+    keys = s.keys()
+
+    for x in wea:
+        if x in keys:
+            tqtype = s.get(x)
+            req = requests.get(url='http://api.tianapi.com/tianqishiju/index',
+                               params={
+                                    'key': 'f70ff9e841951175e95b90e8ca1231ed',
+                                    'tqtype': tqtype
+                               }).json()
+            newslist = req['newslist'][0]
+            return newslist['content'],newslist['author'],newslist['source']
 
 def caihongpi():
     req = requests.get(url='http://api.tianapi.com/caihongpi/index?key=f70ff9e841951175e95b90e8ca1231ed',
@@ -93,13 +87,15 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                'url': '',
                "topcolor": get_color(),
                'data': {'caihongpi': {'value': caihongpi(), 'color': get_color()},
-                        'date': {'value': t + ' ' + d+'\n'+ti, 'color': get_color()},
+                        'date': {'value': t + ' ' + d, 'color': get_color()},
                         'province': {'value': province},
                         'city': {'value': city, 'color': get_color()},
                         'tq': {'value': weat[0], 'color': get_color()},
                         'tem1': {'value': weat[2] + '°C' + ' ~ ' + weat[1] + '°C', 'color': get_color()},
                         'win': {'value': weat[3]},
                         'win1': {'value': weat[4],'color': get_color()},
+                        'verse': {'value': f'{verse()[0]}\n'
+                                           f'{" "*35}--{verse()[1]}《{verse()[2]}》','color': get_color()},
                         'one': {'value': '一言 :  ' + one[0], 'color': get_color()}
                         }
                }
@@ -114,7 +110,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
-    template_id = 'Uu9CnEi4TzCOtNkSw8spo4I682Q6qfcAlM6nz6P5Abg'
+    template_id = '69efLKWpWuC9ateJqjjPxdtaQAe_Hu0ojFGip0AGkB0'
     users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU']
     province = '上海'
     city = '闵行'
