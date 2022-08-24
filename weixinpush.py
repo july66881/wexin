@@ -32,10 +32,13 @@ hour = time_tuple[3]
 mins = time_tuple[4]
 if hour < 10:
     hour = '0'+ str(hour)
+    pam = 'AM'
+else:
+    pam = 'PM'
 if mins < 10:
     mins = '0' + str(mins)
 
-ti = f'上午 {hour}:{mins}'
+ti = f'{pam} {hour}:{mins}'
 d = datetime.datetime.now().weekday()
 if d == 0:
     d = '星期一  Mon.'
