@@ -79,7 +79,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                         'date': {'value': t + ' ' + d+'\n'+ti, 'color': get_color()},
                         'province': {'value': province + '   ' + city, 'color': get_color()},
                         'tq': {'value': weat[0], 'color': get_color()},
-                        'tem1': {'value': weat[1] + '°C' + ' ~ ' + weat[2] + '°C', 'color': get_color()},
+                        'tem1': {'value': weat[2] + '°C' + ' ~ ' + weat[1] + '°C', 'color': get_color()},
                         'win': {'value': weat[3], 'color': get_color()},
                         'one': {'value': '每日一言 :  ' + one[0], 'color': get_color()}
                         }
