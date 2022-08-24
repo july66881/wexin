@@ -34,8 +34,8 @@ if hour > 24:
     hour = hour - 24
     if hour < 10:
         hour = '0'+ str(hour)
-    if mins < 10:
-        mins = '0' + str(mins)
+if mins < 10:
+    mins = '0' + str(mins)
     
 if hour < 12:
     pam = 'AM'
