@@ -30,17 +30,24 @@ time_tuple = time.localtime(time.time())
 t = "{}年{}月{}日".format(time_tuple[0], time_tuple[1], time_tuple[2], time_tuple[3])
 hour = time_tuple[3] + 8
 mins = time_tuple[4]
+
+
 if hour > 24:
     hour = hour - 24
+    if hour < 12:
+        pam = 'AM'
+    else:
+        pam = 'PM'
     if hour < 10:
         hour = '0'+ str(hour)
+    elif hour > 12:
+        hour = hour - 12
+        if hour < 10:
+            hour = '0' + str(hour)
 if mins < 10:
     mins = '0' + str(mins)
     
-if hour < 12:
-    pam = 'AM'
-else:
-    pam = 'PM'
+
 
 ti = f'{pam} {hour}:{mins}'
 d = datetime.datetime.now().weekday()
@@ -108,7 +115,7 @@ if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
     template_id = 'Uu9CnEi4TzCOtNkSw8spo4I682Q6qfcAlM6nz6P5Abg'
-    users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU','oMRds5uSiYdHm9DU9ycQNI0-HpnM']
+    users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU']
     province = '上海'
     city = '闵行'
     weat = weather(province, city)
