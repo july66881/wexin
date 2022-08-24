@@ -63,7 +63,7 @@ elif d == 6:
 def caihongpi():
     req = requests.get(url='http://api.tianapi.com/caihongpi/index?key=f70ff9e841951175e95b90e8ca1231ed',
                        headers={'Content-Type': 'application/x-www-form-urlencoded'}).json()
-    return req['newslist'][0]['content'].replace('xxx', '小杰')
+    return req['newslist'][0]['content'].replace('XXX', '小杰')
 
 
 def oneyg():
