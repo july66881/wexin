@@ -84,7 +84,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 
     one = oneyg()
     payload = {'touser': userid, 'template_id': template_id,
-               'url': '',
+               'url': 'https://www.yikm.net/',
                "topcolor": get_color(),
                'data': {'caihongpi': {'value': caihongpi(), 'color': get_color()},
                         'date': {'value': t + ' ' + d, 'color': get_color()},
