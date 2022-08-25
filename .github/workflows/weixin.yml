@@ -19,4 +19,4 @@ jobs:
       - name: install pip packages
         run: pip install requests==2.28.1
       - name: weixin
-        run: python ./weixinpush.py
+        run: python weixinpush.py
