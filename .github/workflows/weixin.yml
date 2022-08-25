@@ -8,7 +8,7 @@ jobs:
 #将工作流程中运行的所有作业组合在一起
   build:
   #定义名为 build 的作业。 子键将定义作业的属性 
-    runs-on: windows-latest 
+    runs-on: ubuntu-latest 
     steps:
       - uses: actions/checkout@v3
     
@@ -19,4 +19,4 @@ jobs:
       - name: install pip packages
         run: pip install requests==2.28.1
       - name: weixin
-        run: python3 weixinpush.py
+        run: python weixinpush.py
