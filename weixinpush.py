@@ -111,7 +111,7 @@ if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
     template_id = '69efLKWpWuC9ateJqjjPxdtaQAe_Hu0ojFGip0AGkB0'
-    users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU']
+    users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU','oMRds5uSiYdHm9DU9ycQNI0-HpnM']
     province = '上海'
     city = '闵行'
     weat = weather(province, city)
