@@ -3,7 +3,7 @@ import random
 
 import requests
 import time
-import datetime
+from datatime import datetime, timedelta, timezone
 
 
 def get_color():
@@ -25,11 +25,10 @@ def weather(province, city):
     win1 = reqtext['win_speed']
     return weq, tem1, tem2, win, win1
 
+times = datetime.now().astimezone(timezone(timedelta(hours=+8)))
+t = str(times.date()).replace('-','年',1).replace('-','月',1)+'日'
 
-time_tuple = time.localtime(time.time())
-t = "{}年{}月{}日".format(time_tuple[0], time_tuple[1], time_tuple[2])
-
-d = datetime.datetime.now().weekday()
+d = times.weekday()
 if d == 0:
     d = '星期一  Mon.'
 elif d == 1:
