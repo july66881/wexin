@@ -3,7 +3,7 @@ import random
 
 import requests
 import time
-from datatime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone
 
 
 def get_color():
