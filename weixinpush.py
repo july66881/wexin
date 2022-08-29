@@ -155,7 +155,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
 if __name__ == '__main__':
     appid = 'wxc406086ca38696f3'
     secret = 'de59ac469f5b914c61e4bd1042a8c08d'
-    template_id = '2SRysTS6HRGXK3iX5o29lBi1CQ-8wspTTQr3MjOR390'
+    template_id = '3fmxGRQGMr5IL5zKH_TMUNAemvbew-y_Y2wUqnHeac0'
     users = ['oMRds5m7cHe9HPKqVN9wo7WNIRGU','oMRds5uSiYdHm9DU9ycQNI0-HpnM']
     province = '上海'
     city = '闵行'
