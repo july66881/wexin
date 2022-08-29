@@ -127,11 +127,11 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                "topcolor": get_color(),
                'data': {'caihongpi': {'value': caihongpi(), 'color': get_color()},
                         'date': {'value': t + ' ' + d + '  ' + jiejari(times), 'color': get_color()},
-                        'days': {'value': f'♥今天是在一起的第{Days}天♥\n♥{random.choice(a)}♥' + jn, 'color': '#FFC0CB'},
-                        'daojishi': {'value': '♥'+daojishi+'♥', 'color': get_color()},
+                        'days': {'value': f'❤️今天是在一起的第{Days}天❤️+'\n'+❤️{random.choice(a)}❤️' + jn, 'color': '#FFC0CB'},
+                        'daojishi': {'value': '❤️'+daojishi+'❤️', 'color': get_color()},
                         'citywea': {
                             'value': province + ' ' + city + '  ' + weat[0] + '  ' + weat[2] + '°C~' + weat[1] + '°C' +
-                                     '  ' + weat[4] + weat[3], 'color': get_color()},
+                                     '  ' + weat[4] + weat[3], 'color': '#348781'},
 
                         # 'province': {'value': province},
                         # 'city': {'value': city, 'color': get_color()},
@@ -140,7 +140,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                         # 'win': {'value': weat[3]},
                         # 'win1': {'value': weat[4],'color': get_color()},
                         'verse': {'value': f'{verse()[0]}--{verse()[1]}', 'color': get_color()},
-                        'one': {'value': '一言 :  ' + oneyg(), 'color': get_color()}
+                        'one': {'value': '一言 :  ' + oneyg(), 'color': '#2B1B17'}
                         }
                }
 
