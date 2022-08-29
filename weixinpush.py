@@ -101,7 +101,7 @@ def caihongpi():
         req = requests.get(url='http://api.tianapi.com/caihongpi/index?key=f70ff9e841951175e95b90e8ca1231ed',
                            headers={'Content-Type': 'application/x-www-form-urlencoded'}).json()
         a = req['newslist'][0]['content']
-        if len(a) < 50:
+        if len(a) < 80:
             return a.replace('XXX', '你')
 
 
@@ -110,7 +110,7 @@ def oneyg():
         req = requests.get('http://api.tianapi.com/one/index', params={'key': 'f70ff9e841951175e95b90e8ca1231ed',
                                                                        'rand': '1'}).json()['newslist'][0]
         a = req['word']
-        if len(a) < 60:
+        if len(a) < 100:
             return a
 
 
@@ -127,8 +127,8 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                "topcolor": get_color(),
                'data': {'caihongpi': {'value': caihongpi(), 'color': get_color()},
                         'date': {'value': t + ' ' + d + '  ' + jiejari(times), 'color': get_color()},
-                        'days': {'value': f'❤️今天是在一起的第{Days}天❤️'+'\n'+f'爱心{random.choice(a)}❤️' + jn, 'color': '#FFC0CB'},
-                        'daojishi': {'value': '❤️'+daojishi+'❤️', 'color': get_color()},
+                        'days': {'value': f'♥今天是在一起的第{Days}天♥'+'\n'+f'♥{random.choice(a)}♥' + jn, 'color': get_color()},
+                        'daojishi': {'value': '♥'+daojishi+'♥', 'color': get_color()},
                         'citywea': {
                             'value': province + ' ' + city + '  ' + weat[0] + '  ' + weat[2] + '°C~' + weat[1] + '°C' +
                                      '  ' + weat[4] + weat[3], 'color': '#348781'},
@@ -139,7 +139,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                         # 'tem1': {'value': weat[2] + '°C' + ' ~ ' + weat[1] + '°C', 'color': get_color()},
                         # 'win': {'value': weat[3]},
                         # 'win1': {'value': weat[4],'color': get_color()},
-                        'verse': {'value': f'{verse()[0]}--{verse()[1]}', 'color': get_color()},
+                        # 'verse': {'value': f'{verse()[0]}--{verse()[1]}', 'color': get_color()},
                         'one': {'value': '一言 :  ' + oneyg(), 'color': '#2B1B17'}
                         }
                }
