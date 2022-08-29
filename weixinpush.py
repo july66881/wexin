@@ -127,7 +127,7 @@ def send_message_ceshiVX(appid, secret, template_id, weat, province, city, useri
                "topcolor": get_color(),
                'data': {'caihongpi': {'value': caihongpi(), 'color': get_color()},
                         'date': {'value': t + ' ' + d + '  ' + jiejari(times), 'color': get_color()},
-                        'days': {'value': f'❤️今天是在一起的第{Days}天❤️+'\n'+❤️{random.choice(a)}❤️' + jn, 'color': '#FFC0CB'},
+                        'days': {'value': f'❤️今天是在一起的第{Days}天❤️'+'\n'+f'爱心{random.choice(a)}❤️' + jn, 'color': '#FFC0CB'},
                         'daojishi': {'value': '❤️'+daojishi+'❤️', 'color': get_color()},
                         'citywea': {
                             'value': province + ' ' + city + '  ' + weat[0] + '  ' + weat[2] + '°C~' + weat[1] + '°C' +
