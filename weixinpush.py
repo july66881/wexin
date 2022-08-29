@@ -101,7 +101,7 @@ def caihongpi():
         req = requests.get(url='http://api.tianapi.com/caihongpi/index?key=f70ff9e841951175e95b90e8ca1231ed',
                            headers={'Content-Type': 'application/x-www-form-urlencoded'}).json()
         a = req['newslist'][0]['content']
-        if len(a) < 50 and '少年' not in a and '胡子' not in a and '哥哥' not in a:
+        if len(a) < 50:
             return a.replace('XXX', '你')
 
 
